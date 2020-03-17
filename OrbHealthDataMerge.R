@@ -34,5 +34,11 @@ dataF$Pred3C <- with(dataF,ifelse(Pred3>0,Pred1,0))
 dataF$Pred4C <- with(dataF,ifelse(Pred4>0,Pred1,0))
 dataF$Pred5C <- with(dataF,ifelse(Pred5>0,Pred1,0))
 
+dataF$Difference1 <- dataF$Pred1C - dataF$value_Under.five.mortality.rate
+dataF$Difference2 <- dataF$Pred2C - dataF$value_Under.five.mortality.rate
+dataF$Difference3 <- dataF$Pred3C - dataF$value_Under.five.mortality.rate
+dataF$Difference4 <- dataF$Pred4C - dataF$value_Under.five.mortality.rate
+dataF$Difference5 <- dataF$Pred5C - dataF$value_Under.five.mortality.rate
+
 write.csv(dataF, "/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/Heather Orb Health Data Using/PREDS + ORB Mortalitty and Healthcare MERGED Final.csv")
 write.csv(data123, "/Users/heatherkrause/Dropbox/Active Projects 2020/Chamjari/Capital One/Data123.csv")
