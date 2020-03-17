@@ -14,6 +14,7 @@ data13b <- merge(data1,data3,by=c("Country","year"),all=T)
 
 dataF <- data13b[which(data13b$year>1980),]
 
+
 fit1 <- lm(value_Under.five.mortality.rate~year+value_Nurses.and.midwives+value_Physicians,data=dataF)
 fit1b <- lm(value_Under.five.mortality.rate~year+value_Nurses.and.midwives+value_Physicians,data=data13)
 fit1b2 <- lm(value_Under.five.mortality.rate~year+value_Nurses.and.midwives+value_Physicians,data=data13b)
@@ -26,6 +27,12 @@ dataF$Pred2 <- predict(fit2,newdata=dataF)
 dataF$Pred3 <- predict(fit3,newdata=dataF)
 dataF$Pred4 <- predict(fit4,newdata=dataF)
 dataF$Pred5 <- predict(fit5,newdata=dataF)
+
+dataF$Pred1C <- with(dataF,ifelse(Pred1>0,Pred1,0))
+dataF$Pred2C <- with(dataF,ifelse(Pred2>0,Pred1,0))
+dataF$Pred3C <- with(dataF,ifelse(Pred3>0,Pred1,0))
+dataF$Pred4C <- with(dataF,ifelse(Pred4>0,Pred1,0))
+dataF$Pred5C <- with(dataF,ifelse(Pred5>0,Pred1,0))
 
 write.csv(dataF, "/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/Heather Orb Health Data Using/PREDS + ORB Mortalitty and Healthcare MERGED Final.csv")
 write.csv(data123, "/Users/heatherkrause/Dropbox/Active Projects 2020/Chamjari/Capital One/Data123.csv")
