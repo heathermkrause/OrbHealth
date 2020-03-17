@@ -29,10 +29,10 @@ dataF$Pred4 <- predict(fit4,newdata=dataF)
 dataF$Pred5 <- predict(fit5,newdata=dataF)
 
 dataF$Pred1C <- with(dataF,ifelse(Pred1>0,Pred1,0))
-dataF$Pred2C <- with(dataF,ifelse(Pred2>0,Pred1,0))
-dataF$Pred3C <- with(dataF,ifelse(Pred3>0,Pred1,0))
-dataF$Pred4C <- with(dataF,ifelse(Pred4>0,Pred1,0))
-dataF$Pred5C <- with(dataF,ifelse(Pred5>0,Pred1,0))
+dataF$Pred2C <- with(dataF,ifelse(Pred2>0,Pred2,0))
+dataF$Pred3C <- with(dataF,ifelse(Pred3>0,Pred3,0))
+dataF$Pred4C <- with(dataF,ifelse(Pred4>0,Pred4,0))
+dataF$Pred5C <- with(dataF,ifelse(Pred5>0,Pred5,0))
 
 dataF$Difference1 <- dataF$Pred1C - dataF$value_Under.five.mortality.rate
 dataF$Difference2 <- dataF$Pred2C - dataF$value_Under.five.mortality.rate
