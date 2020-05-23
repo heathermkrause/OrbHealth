@@ -42,3 +42,23 @@ dataF$Difference5 <- dataF$Pred5C - dataF$value_Under.five.mortality.rate
 
 write.csv(dataF, "/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/Heather Orb Health Data Using/PREDS + ORB Mortalitty and Healthcare MERGED Final.csv")
 write.csv(data123, "/Users/heatherkrause/Dropbox/Active Projects 2020/Chamjari/Capital One/Data123.csv")
+
+data1.csv
+dataA <- read.csv("/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/healthcareformerge.csv")
+dataB <- read.csv("/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/medicalformerge.csv")
+dataC <- read.csv("/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/differenceformerge.csv")
+
+dataAB <- merge(dataA, dataB, by=c("Country"),all=T)
+dataABc <- merge(dataAB, dataC, by=c("Country"),all=T)
+write.csv(dataABc , "/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Orb health data to share May 5 2020.csv")
+
+
+dataCHW<- read.csv("/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/data1.csv")
+dataDR<- read.csv("/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/data3.csv")
+dataNurse<- read.csv("/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/data2.csv")
+
+dataCHWDR <- merge(dataCHW,dataDR,by=c("Country","Year"),all=T)
+dataCHWDRN <- merge(dataCHWDR,dataNurse,by=c("Country","Year"),all=T)
+write.csv(dataCHWDRN , "/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/WHOCombinedCountData.csv")
+library(tidyverse)
+group %>% group_by(Subject) %>% top_n(1, pt)
