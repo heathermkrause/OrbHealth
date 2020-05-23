@@ -62,3 +62,11 @@ dataCHWDRN <- merge(dataCHWDR,dataNurse,by=c("Country","Year"),all=T)
 write.csv(dataCHWDRN , "/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/WHOCombinedCountData.csv")
 library(tidyverse)
 group %>% group_by(Subject) %>% top_n(1, pt)
+
+dataMostrecentyear <- dataCHWDRN %>% group_by(Country) %>% top_n(1, Year)
+dataMostrecent3year <- dataCHWDRN %>% group_by(Country) %>% top_n(3, Year)
+
+write.csv(dataMostrecentyear , "/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/WHOCombinedCountData_dataMostrecentyear.csv")
+
+write.csv(dataMostrecent3year , "/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/WHOCombinedCountData_dataMostrecent3year.csv")
+
