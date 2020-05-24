@@ -70,5 +70,12 @@ write.csv(dataMostrecentyear , "/Users/heatherkrause/Dropbox/Active Projects 202
 
 write.csv(dataMostrecent3year , "/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/WHOCombinedCountData_dataMostrecent3year.csv")
 
-dataWB<- read.csv("/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/World Bank CHW per 1000.csv")
+dataIN<- read.csv("/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/WB Countries by income CLASS.csv")
+dataIN$Country <- dataIN$CountryName
+
+dataF1 <- merge(dataCHWDRN,dataIN,by=c("Country"),all=T)
+dataF2 <- merge(dataMostrecentyear,dataIN,by=c("Country"),all=T)
+
+write.csv(dataF1 , "/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/dataF1.csv")
+write.csv(dataF2 , "/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/dataF2.csv")
 
