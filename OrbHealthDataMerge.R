@@ -63,8 +63,12 @@ write.csv(dataCHWDRN , "/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/He
 library(tidyverse)
 group %>% group_by(Subject) %>% top_n(1, pt)
 
-dataMostrecentyear <- dataCHWDRN %>% group_by(Country) %>% top_n(1, Year)
-dataMostrecent3year <- dataCHWDRN %>% group_by(Country) %>% top_n(3, Year)
+dataCHWnotmissing <- 
+  dataCHWDRN %>% 
+  filter(!is.na(dataCHWDRN$Community.Health.Workers..number.))
+
+dataMostrecentyear <- dataCHWnotmissing %>% group_by(Country) %>% top_n(1, Year)
+dataMostrecent3year <- dataCHWnotmissing %>% group_by(Country) %>% top_n(3, Year)
 
 write.csv(dataMostrecentyear , "/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/WHOCombinedCountData_dataMostrecentyear.csv")
 
@@ -73,7 +77,7 @@ write.csv(dataMostrecent3year , "/Users/heatherkrause/Dropbox/Active Projects 20
 dataIN<- read.csv("/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/WB Countries by income CLASS.csv")
 dataIN$Country <- dataIN$CountryName
 
-dataF1 <- merge(dataCHWDRN,dataIN,by=c("Country"),all=T)
+dataF1 <- merge(dataCHWnotmissing,dataIN,by=c("Country"),all=T)
 dataF2 <- merge(dataMostrecentyear,dataIN,by=c("Country"),all=T)
 
 write.csv(dataF1 , "/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/dataF1.csv")
