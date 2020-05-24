@@ -70,3 +70,5 @@ write.csv(dataMostrecentyear , "/Users/heatherkrause/Dropbox/Active Projects 202
 
 write.csv(dataMostrecent3year , "/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/WHOCombinedCountData_dataMostrecent3year.csv")
 
+dataWB<- read.csv("/Users/heatherkrause/Dropbox/Active Projects 2020/Orb/Health Worker Data + Research/World Bank CHW per 1000.csv")
+
